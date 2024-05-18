@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, TextInput, View } from "react-native";
+import { Button, StyleSheet, Text, TextInput, View } from "react-native";
 
 export default function App() {
   return (
@@ -35,7 +35,10 @@ export default function App() {
           style={[styles.btnField, styles.password]}
           placeholder="Phone Number"
         />
+        <View style={styles.end}>
+        <Button style={styles.button} title="Register"  />
         <Text>Forgot password? Retrieve</Text>
+        </View>
       </View>
     </View>
   );
@@ -69,4 +72,13 @@ const styles = StyleSheet.create({
     marginTop: 20,
     backgroundColor: "#ffffff",
   },
+  end:{
+    marginTop: 120,
+    marginBottom:120,
+    height: 60,
+    width: 311,
+  },
+  button:{
+    borderRadius: 15,
+  }
 });
