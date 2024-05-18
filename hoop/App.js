@@ -8,19 +8,33 @@ export default function App() {
         style={{
           fontFamily: "Ciutadella",
           color: "white",
-          height:80,
-          left:32,
-          fontWeight:400,
-          fontSize:32,
-          lineHeight:38.4
+          height: 80,
+          left: 32,
+          fontWeight: 400,
+          fontSize: 32,
+          lineHeight: 38.4,
         }}
       >
         Glad to see you!!
       </Text>
       <StatusBar style="auto" />
       <View style={styles.form}>
-        <TextInput style={[styles.btnField,styles.email]} placeholder="Email" />
-        <TextInput style={[styles.btnField,styles.password]} placeholder="Password" />
+        <TextInput
+          style={[styles.btnField, styles.email]}
+          placeholder="Email"
+        />
+        <TextInput
+          style={[styles.btnField, styles.password]}
+          placeholder="Password"
+        />
+        <TextInput
+          style={[styles.btnField, styles.password]}
+          placeholder="Password Authentication"
+        />
+        <TextInput
+          style={[styles.btnField, styles.password]}
+          placeholder="Phone Number"
+        />
         <Text>Forgot password? Retrieve</Text>
       </View>
     </View>
@@ -42,17 +56,17 @@ const styles = StyleSheet.create({
     paddingTop: 50,
     alignItems: "center",
   },
-  btnField:{
-    height:60,
+  btnField: {
+    height: 60,
     width: 311,
-    paddingLeft:20,
-    borderRadius:15
+    paddingLeft: 20,
+    borderRadius: 15,
   },
-  email:{
-    backgroundColor:"#ffffff",
+  email: {
+    backgroundColor: "#ffffff",
   },
-  password:{
-    marginTop:20,
-    backgroundColor:"#ffffff",
-  }
+  password: {
+    marginTop: 20,
+    backgroundColor: "#ffffff",
+  },
 });
