@@ -35,10 +35,8 @@ export default function App() {
           style={[styles.btnField, styles.password]}
           placeholder="Phone Number"
         />
-        <View style={styles.end}>
-        <Button style={styles.button} title="Register"  />
+        <Button style={[styles.btnField,styles.button]} title="Register"  />
         <Text>Forgot password? Retrieve</Text>
-        </View>
       </View>
     </View>
   );
