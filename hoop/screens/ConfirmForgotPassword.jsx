@@ -1,6 +1,7 @@
 import React from 'react'
 import { Image, StyleSheet, Text, View,Pressable, SafeAreaView } from 'react-native'
-const img = require('../img/password.jpg')
+import Svg, {Circle, SvgUri} from 'react-native-svg'
+import svgImg from '../img/Asset3.1.svg'
 
 const ConfirmForgotPassword = () => {
   return (
@@ -8,8 +9,9 @@ const ConfirmForgotPassword = () => {
 
     <View style={styles.container}>
     <View style={styles.div}> 
+    {/* <SvgUri height="100%" width="100%" uri={svgImg}/> */}
    
-            <Image style={{width: 100, height: 100, alignSelf:"center",position:'absolute',alignSelf:'center',marginBottom:'auto',marginTop:100}} source={img} />
+            {/* <Image style={{width: 100, height: 100, alignSelf:"center",position:'absolute',alignSelf:'center',marginBottom:'auto',marginTop:100}} source={img} /> */}
    
         </View>
         <Text style={styles.email}>Check your Email </Text>
