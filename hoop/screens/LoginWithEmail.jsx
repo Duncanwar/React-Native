@@ -1,9 +1,10 @@
 import { StatusBar } from "expo-status-bar";
 import { useEffect, useState } from "react";
-import { Button, Pressable, StyleSheet, Text, TextInput, View } from "react-native";
+import { Button, Pressable, SafeAreaView, StyleSheet, Text, TextInput, View } from "react-native";
 import * as Font from "expo-font"
 import AppLoadding from "expo-app-loading"
 import MaterialCommunityIcons from "react-native-vector-icons"
+import { renderInputText } from "../components/form";
 
 
 const loadFonts = async()=>{
@@ -22,7 +23,7 @@ export default function Register() {
   //   return <AppLoadding />;
   // }
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Text
         style={{
           fontFamily: "Ciutadella",
@@ -33,47 +34,30 @@ export default function Register() {
           lineHeight: 38.4,
         }}
       >
-        Let's start!!
+        Glad to see you!!
       </Text>
       <StatusBar style="auto" />
       <View style={styles.form}>
-        <TextInput
-          style={[styles.btnField, styles.email]}
-          placeholder="Email"
-          placeholderTextColor="rgba(45, 45, 45, 0.5)"
-        />
-        <TextInput
-          style={[styles.btnField, styles.password]}
-          placeholder="Password"
-          placeholderTextColor="rgba(45, 45, 45, 0.5)"
-        //   right={<TextInput.Icon 
-        //   name={()=><MaterialCommunityIcons name="eye-off" />} />
-        //   }
-        />
-        <TextInput
-          style={[styles.btnField, styles.password]}
-          placeholder="Password Authentication"
-          placeholderTextColor="rgba(45, 45, 45, 0.5)"
-        />
-        <TextInput
-          style={[styles.btnField, styles.password]}
-          placeholder="Phone Number"
-          placeholderTextColor="rgba(45, 45, 45, 0.5)"
-        />
+        {renderInputText([styles.btnField, styles.email],"Email","rgba(45, 45, 45,0.5")}
+        {renderInputText([styles.btnField, styles.password],"Password","rgba(45, 45, 45")}
+        
+
         <Pressable style={styles.button}>
-          <Text style={styles.text}>Register</Text>
+          <Text style={styles.text}>Login</Text>
         </Pressable>
         <Text style={{
           paddingTop: 20,
           color:"rgba(45, 45, 45, 0.5)",
+          top:300
         }}>
-          <Text>Have an account?</Text>
+          <Text>Dont't an account?</Text>
            <Text style={{
-            color:"red"
-           }}> Sign In</Text>
+             color:"red"
+            }}> Sign Up</Text>
           </Text>
+            
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -116,7 +100,7 @@ const styles = StyleSheet.create({
     backgroundColor:'#130F26',
     height: 60,
     width: 311,
-    marginTop: 110,
+    top: 300,
   },
   text:{
     fontSize:16,

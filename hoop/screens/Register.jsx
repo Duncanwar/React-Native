@@ -4,6 +4,7 @@ import { Button, Pressable, StyleSheet, Text, TextInput, View } from "react-nati
 import * as Font from "expo-font"
 import AppLoadding from "expo-app-loading"
 import MaterialCommunityIcons from "react-native-vector-icons"
+import { renderInputText } from "../components/form";
 
 
 const loadFonts = async()=>{
@@ -37,19 +38,12 @@ export default function Register() {
       </Text>
       <StatusBar style="auto" />
       <View style={styles.form}>
-        <TextInput
-          style={[styles.btnField, styles.email]}
-          placeholder="Email"
-          placeholderTextColor="rgba(45, 45, 45, 0.5)"
-        />
+        {renderInputText([styles.btnField, styles.email],"Email","rgba(45, 45, 45, 0.5)")}
         <TextInput
           style={[styles.btnField, styles.password]}
           placeholder="Password"
           placeholderTextColor="rgba(45, 45, 45, 0.5)"
-        //   right={<TextInput.Icon 
-        //   name={()=><MaterialCommunityIcons name="eye-off" />} />
-        //   }
-        />
+          />
         <TextInput
           style={[styles.btnField, styles.password]}
           placeholder="Password Authentication"
