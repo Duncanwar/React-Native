@@ -39,9 +39,20 @@ export default function Register() {
       <StatusBar style="auto" />
       <View style={styles.form}>
         {renderInputText([styles.btnField, styles.email],"Email","rgba(45, 45, 45,0.5")}
-        {renderInputText([styles.btnField, styles.password],"Password","rgba(45, 45, 45")}
-        
-
+        {renderInputText([styles.btnField, styles.password],"Password","rgba(45, 45, 45, 0.5")}
+        <Text style={{
+          color:"rgba(45, 45, 45, 0.5)",
+          top:10,
+          left:70,
+          fontSize:14,
+          lineHeight:16.8,
+          fontWeight:400
+        }}>
+          <Text>Forgot Password?</Text>
+           <Text style={{
+             color:"red",
+            }}> Retrieve</Text>
+          </Text>
         <Pressable style={styles.button}>
           <Text style={styles.text}>Login</Text>
         </Pressable>
