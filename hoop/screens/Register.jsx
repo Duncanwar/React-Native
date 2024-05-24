@@ -13,7 +13,7 @@ const loadFonts = async()=>{
   });
 }
 
-export default function Register() {
+export default function Register({navigation}) {
   const [fontsLoaded, setFontsLoaded] = useState(false);
 
   useEffect(()=>{
@@ -64,7 +64,9 @@ export default function Register() {
           <Text>Have an account?</Text>
            <Text style={{
             color:"red"
-           }}> Sign In</Text>
+           }}
+           onPress={()=> navigation.navigate('Register')}
+           > Sign In</Text>
           </Text>
       </View>
     </View>
