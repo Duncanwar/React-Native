@@ -26,7 +26,6 @@ export default function Register() {
     <SafeAreaView style={styles.container}>
       <Text
         style={{
-          fontFamily: "Ciutadella",
           color: "white",
           left: 32,
           fontWeight: 400,
