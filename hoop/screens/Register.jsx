@@ -64,7 +64,8 @@ export default function Register({navigation}) {
            <Text style={{
             color:"red"
            }}
-           onPress={()=> navigation.navigate('Register')}
+           onPress={()=> {
+            navigation.navigate('Login')}}
            > Sign In</Text>
           </Text>
       </View>
