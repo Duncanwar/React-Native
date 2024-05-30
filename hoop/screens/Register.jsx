@@ -19,12 +19,12 @@ export default function Register({navigation}) {
           lineHeight: 38.4,
         }}
       >
-        Let's start!!
+        Create Account
       </Text>
       <StatusBar style="auto" />
       <View style={styles.form}>
         <TextInput
-        label="Emailgggggg"
+        label="Email"
         textColor="white"
         autoComplete="email"
         theme={{colors:{primary:"#FFD130"}}}
@@ -41,7 +41,19 @@ export default function Register({navigation}) {
         autoComplete="email"
         theme={{colors:{primary:"#FFD130"}}}
         placeholderTextColor="color"
-        right={<TextInput.Icon icon="email" color="#ffd130" />}
+        right={<TextInput.Icon icon="eye" color="#ffd130" />}
+        style={{
+          marginTop: 10,
+          backgroundColor: "#26282C",
+        }}
+        />
+        <TextInput
+        label="Confirm Password"
+        textColor="white"
+        autoComplete="password"
+        theme={{colors:{primary:"#FFD130"}}}
+        placeholderTextColor="color"
+        right={<TextInput.Icon icon="eye" color="#ffd130" />}
         style={{
           marginTop: 10,
           backgroundColor: "#26282C",
@@ -71,7 +83,8 @@ export default function Register({navigation}) {
 const styles = StyleSheet.create({
   container: {
     width: "100%",
-    height: height,
+    height: "100%",
+    justifyContent:"center",
     padding: 15,
     backgroundColor:"#26282C"
   },
