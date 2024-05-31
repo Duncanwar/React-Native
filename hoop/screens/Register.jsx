@@ -1,10 +1,18 @@
 import { StatusBar } from "expo-status-bar";
 import { useEffect, useState } from "react";
-import { Button, Pressable, SafeAreaView, StyleSheet, Text, View } from "react-native";
+import { Pressable, SafeAreaView, StyleSheet, Text, View } from "react-native";
 import { TextInput } from "react-native-paper";
+import {app} from '../utils/firebaseConfiguration';
+import {getAuth, createUserWithEmailAndPassword} from "firebase/auth"
 
 export default function Register({navigation}) {
   const [fontsLoaded, setFontsLoaded] = useState(false);
+
+  const handleSignup = (email,password) =>{
+    const auth = getAuth(app);
+    createUserWithEmailAndPassword()
+
+  }
 
   return (
     <SafeAreaView >
