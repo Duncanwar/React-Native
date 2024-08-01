@@ -1,21 +1,20 @@
 import {
   Button,
+  Dimensions,
   SafeAreaView,
   StyleSheet,
   Alert,
   Platform,
   StatusBar,
+  View,
 } from "react-native";
 
 export default function App() {
+  console.log(Dimensions.get("screen"));
   return (
     <SafeAreaView style={styles.container}>
-      <Button
-        color="orange"
-        title="Click Me"
-        onPress={() =>
-          Alert.prompt("My Title", "My message", (text) => console.log(text))
-        }
+      <View
+        style={{ backgroundColor: "dodgerblue", width: "100%", height: 70 }}
       />
     </SafeAreaView>
   );
@@ -24,7 +23,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+    backgroundColor: "dodgerblue",
+    width: "50%",
+    height: 70,
   },
 });
