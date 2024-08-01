@@ -1,30 +1,23 @@
-import { StatusBar } from "expo-status-bar";
-import { useState } from "react";
-import { Button, StyleSheet, Text, View } from "react-native";
+import { Button, SafeAreaView, StyleSheet, Alert } from "react-native";
 
 export default function App() {
-  const [text, setText] = useState("Music is good to the soul");
-let x;
-x.toString()
   return (
-    <View style={styles.container}>
-      <Text>{text} Hello!kjfkjdkjajdsjk
-      </Text>
-      <StatusBar style="auto" />
+    <SafeAreaView style={styles.container}>
       <Button
-        title="Change"
-        onPress={() => {
-          setText("I love to sing");
-        }}
+        color="orange"
+        title="Click Me"
+        onPress={() =>
+          Alert.prompt("My Title", "My message", (text) => console.log(text))
+        }
       />
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#25292e",
+    backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
   },
