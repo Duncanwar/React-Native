@@ -8,13 +8,20 @@ import {
   StatusBar,
   View,
 } from "react-native";
+import { useDimensions } from "react-native-hooks";
+import { useDeviceOrientation } from "@react-native-community/hooks";
 
 export default function App() {
-  console.log(Dimensions.get("screen"));
+  const dimensions = useDimensions();
+  const { landscape } = useDeviceOrientation();
   return (
     <SafeAreaView style={styles.container}>
       <View
-        style={{ backgroundColor: "dodgerblue", width: "100%", height: 70 }}
+        style={{
+          backgroundColor: "dodgerblue",
+          width: "100%",
+          height: landscape ? "100" : "30%",
+        }}
       />
     </SafeAreaView>
   );
@@ -25,6 +32,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "dodgerblue",
     width: "50%",
-    height: 70,
+    height: 30,
   },
 });
