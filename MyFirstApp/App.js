@@ -1,7 +1,9 @@
 import { View } from "react-native";
+import WelcomeScreen from "./WelcomeScreen";
 
 export default function App() {
   return (
+    // <WelcomeScreen />
     <View
       style={{
         backgroundColor: "#fff",
@@ -9,6 +11,8 @@ export default function App() {
         flexDirection: "row",
         justifyContent: "center",
         alignItems: "center",
+        alignContent: "center",
+        flexWrap: "nowrap",
       }}
     >
       <View
