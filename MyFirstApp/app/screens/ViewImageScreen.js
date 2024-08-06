@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     right: 30,
   },
   container: {
-    backgroundColor: "#000",
+    backgroundColor: colors.black,
     flex: 1,
   },
   image: {
