@@ -10,15 +10,13 @@ export default function App() {
           backgroundColor: "dodgerblue",
           width: 100,
           height: 100,
-          //ios shadows
-          shadowColor: "grey",
-          shadowOffset: { width: 0, height: 10 },
-          shadowOpacity: 1,
-          shadowRadius: 10,
-          // android shadows
-          elevation: 50,
+          padding: 20,
+          paddingHorizontal: 10,
+          paddingLeft: 30,
         }}
-      ></View>
+      >
+        <View style={{ backgroundColor: "gold", width: 50, height: 50 }}></View>
+      </View>
     </View>
   );
 }
