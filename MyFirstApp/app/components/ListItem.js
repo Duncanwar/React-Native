@@ -1,5 +1,6 @@
 import React from "react";
 import { Image, StyleSheet, View } from "react-native";
+
 import AppText from "./AppText";
 import colors from "../config/colors";
 
@@ -32,4 +33,5 @@ const styles = StyleSheet.create({
     fontWeight: "500",
   },
 });
+
 export default ListItem;
