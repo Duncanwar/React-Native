@@ -7,12 +7,13 @@ import colors from "../config/colors";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 function ListItem({ title, subTitle, image, onPress, renderRightActions }) {
+  console.log({ title, subTitle, image, onPress, renderRightActions });
   return (
     <GestureHandlerRootView>
       <Swipeable renderRightActions={renderRightActions}>
         <TouchableHighlight underlayColor={colors.light} onPress={onPress}>
           <View style={styles.container}>
-            <Image style={styles.image} source={image} />
+            {image && <Image style={styles.image} source={image} />}
             <View>
               <AppText style={styles.title}>{title}</AppText>
               <AppText style={styles.subTitle}>{subTitle}</AppText>
