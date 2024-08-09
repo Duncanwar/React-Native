@@ -9,19 +9,15 @@ import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
 import MessagesScreen from "./app/screens/MessagesScreen";
 import AccountScreen from "./app/screens/AccountScreen";
 import ListingsScreen from "./app/screens/ListingsScreen";
+import AppText from "./app/components/AppText";
+import AppTextInput from "./app/components/AppTextInput";
+import colors from "./app/config/colors";
 
 export default function App() {
   const [firstName, setFirstName] = useState("");
   return (
     <Screen>
-      <Text>{firstName}</Text>
-      <TextInput
-        secureTextEntry={true}
-        keyboardType="numeric"
-        onChangeText={(text) => setFirstName(text)}
-        placeholder="First Name"
-        style={{ borderBottomColor: "#ccc", borderBottomWidth: 1 }}
-      />
+      <AppTextInput placeholder="Username" icon="email" />
     </Screen>
   );
 }
