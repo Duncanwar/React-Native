@@ -1,5 +1,5 @@
-import RegisterScreen from "./app/screens/RegisterScreen";
+import ListingEditingScreen from "./app/screens/ListingEditScreen";
 
 export default function App() {
-  return <RegisterScreen />;
+  return <ListingEditingScreen />;
 }
