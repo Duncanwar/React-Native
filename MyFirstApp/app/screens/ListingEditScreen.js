@@ -32,7 +32,7 @@ const categories = [
     backgroundColor: "#2bcbba",
   },
   {
-    label: "Cameras",
+    label: "Camera",
     value: 3,
     icon: "camera",
     backgroundColor: "#fed330",
@@ -47,13 +47,31 @@ const categories = [
     label: "Games",
     value: 5,
     icon: "cards",
-    backgroundColor: "#",
+    backgroundColor: "#26de81",
   },
   {
-    label: "Cameras",
+    backgroundColor: "#45aaf2",
+    icon: "basketball",
+    label: "Sports",
     value: 6,
-    icon: "camera",
-    backgroundColor: "#fed330",
+  },
+  {
+    backgroundColor: "#4b7bec",
+    icon: "headphones",
+    label: "Movies & Music",
+    value: 7,
+  },
+  {
+    backgroundColor: "#45a632",
+    icon: "book",
+    label: "Books",
+    value: 8,
+  },
+  {
+    backgroundColor: "#45a211",
+    icon: "note",
+    label: "Other",
+    value: 9,
   },
 ];
 
@@ -81,7 +99,8 @@ function ListingEditingScreen(props) {
         <Picker
           items={categories}
           name="category"
-          PickerItemComponent={CategoryPickerItem}
+          // numberOfColumns={3}
+          // PickerItemComponent={CategoryPickerItem}
           placeholder="Category"
           width="50%"
         />
