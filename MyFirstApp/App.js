@@ -1,5 +1,10 @@
-import ListingEditingScreen from "./app/screens/ListingEditScreen";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+import MessageScreen from "./app/screens/MessagesScreen";
 
 export default function App() {
-  return <ListingEditingScreen />;
+  return (
+    <GestureHandlerRootView>
+      <MessageScreen />
+    </GestureHandlerRootView>
+  );
 }
