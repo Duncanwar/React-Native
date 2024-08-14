@@ -17,14 +17,38 @@ const categories = [
   {
     label: "Furniture",
     value: 1,
+    icon: "floor-lamp",
+    backgroundColor: "#fc5c65",
   },
   {
     label: "Clothing",
     value: 2,
+    icon: "shoe-heel",
+    backgroundColor: "#2bcbba",
   },
   {
-    label: "Camera",
+    label: "Cameras",
     value: 3,
+    icon: "camera",
+    backgroundColor: "#fed330",
+  },
+  {
+    label: "Cars",
+    value: 4,
+    icon: "car",
+    backgroundColor: "#fd9644",
+  },
+  {
+    label: "Games",
+    value: 5,
+    icon: "cards",
+    backgroundColor: "#",
+  },
+  {
+    label: "Cameras",
+    value: 6,
+    icon: "camera",
+    backgroundColor: "#fed330",
   },
 ];
 
