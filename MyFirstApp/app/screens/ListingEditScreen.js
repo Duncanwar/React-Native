@@ -99,8 +99,8 @@ function ListingEditingScreen(props) {
         <Picker
           items={categories}
           name="category"
-          // numberOfColumns={3}
-          // PickerItemComponent={CategoryPickerItem}
+          numberOfColumns={3}
+          PickerItemComponent={CategoryPickerItem}
           placeholder="Category"
           width="50%"
         />
