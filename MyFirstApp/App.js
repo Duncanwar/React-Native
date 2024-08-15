@@ -20,14 +20,14 @@ export default function App() {
   const selectImage = async () => {
     try {
       const result = await ImagePicker.launchImageLibraryAsync();
-      if (!result.canceled) setImageUri(result.uri);
+      if (!result.canceled) setImageUri(result.assets[0].uri);
     } catch (error) {
       console.log("Error reading an imaage", error);
     }
   };
   return (
     <Screen>
-      <Button title="Select Image" onPress={selectImage} />
+      <Button title="Select Image" onPress={() => selectImage()} />
       <Image source={{ uri: imageUri }} style={{ width: 200, height: 200 }} />
     </Screen>
   );
