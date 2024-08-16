@@ -41,7 +41,7 @@ function ImageInput({ imageUri, onChangeImage }) {
       });
       if (!result.canceled) onChangeImage(result.assets[0].uri);
     } catch (error) {
-      console.log("Error reading an imaage", error);
+      console.log("Error reading an image", error);
     }
   };
   return (
