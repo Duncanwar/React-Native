@@ -1,7 +1,10 @@
 import { Button, Text } from "react-native";
 import Screen from "./app/components/Screen";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
+
+const Account = () => <Text>Account</Text>;
 
 const Tweets = ({ navigation }) => (
   <Screen>
@@ -39,10 +42,17 @@ const StackNavigator = () => (
     <Stack.Screen name="TweetDetails" component={TweetsDetails} />
   </Stack.Navigator>
 );
+const Tab = createBottomTabNavigator();
+const TabNavigator = () => (
+  <Tab.Navigator>
+    <Tab.Screen name="Feed" component={Tweets} />
+    <Tab.Screen name="Account" component={Account} />
+  </Tab.Navigator>
+);
 export default function App() {
   return (
     <NavigationContainer>
-      <StackNavigator />
+      <TabNavigator />
     </NavigationContainer>
   );
 }
