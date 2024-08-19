@@ -24,7 +24,7 @@ const TweetsDetails = ({ route }) => (
 );
 
 const Stack = createNativeStackNavigator();
-const StackNavigator = () => (
+const FeedNavigator = () => (
   <Stack.Navigator
     initialRouteName="Tweets"
     screenOptions={{
@@ -45,23 +45,8 @@ const StackNavigator = () => (
 );
 const Tab = createBottomTabNavigator();
 const TabNavigator = () => (
-  <Tab.Navigator
-    screenOptions={{
-      tabBarActiveBackgroundColor: "tomato",
-      tabBarActiveTintColor: "white",
-      tabBarInactiveBackgroundColor: "#eee",
-      tabBarInactiveTintColor: "black",
-    }}
-  >
-    <Tab.Screen
-      name="Feed"
-      component={Tweets}
-      options={{
-        tabBarIcon: ({ size, color }) => (
-          <MaterialCommunityIcons color={color} name="home" size={size} />
-        ),
-      }}
-    />
+  <Tab.Navigator>
+    <Tab.Screen name="Feed" component={FeedNavigator} />
     <Tab.Screen name="Account" component={Account} />
   </Tab.Navigator>
 );
