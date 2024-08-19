@@ -8,7 +8,7 @@ const Tweets = ({ navigation }) => (
     <Text>Tweets</Text>
     <Button
       title="View Tweet "
-      onPress={() => navigation.navigate("TweetDetails", { id: 1 })}
+      onPress={() => navigation.navigate("TweetDetails", { id: "1" })}
     />
   </Screen>
 );
@@ -23,7 +23,11 @@ const Stack = createNativeStackNavigator();
 const StackNavigator = () => (
   <Stack.Navigator initialRouteName="Tweets">
     <Stack.Screen name="Tweets" component={Tweets} />
-    <Stack.Screen name="TweetDetails" component={TweetsDetails} />
+    <Stack.Screen
+      name="TweetDetails"
+      component={TweetsDetails}
+      options={({ route }) => ({ title: route.params.id })}
+    />
   </Stack.Navigator>
 );
 export default function App() {
