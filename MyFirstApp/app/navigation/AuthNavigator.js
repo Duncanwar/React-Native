@@ -20,11 +20,4 @@ const AuthNavigator = () => (
   </Stack.Navigator>
 );
 
-const ListingNavigator = () => (
-  <Stack.Navigator>
-    <Stack.Screen name="Listings" component={ListingsScreen} />
-    <Stack.Screen name="Listing Details" component={ListingDetailsScreen} />
-  </Stack.Navigator>
-);
-
 export default AuthNavigator;

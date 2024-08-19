@@ -3,9 +3,7 @@ import { Image, ImageBackground, StyleSheet, Text, View } from "react-native";
 import AppButton from "../components/AppButton";
 import { useNavigation } from "@react-navigation/native";
 
-function WelcomeScreen() {
-  const navigation = useNavigation();
-
+function WelcomeScreen({ navigation }) {
   return (
     <ImageBackground
       blurRadius={10}
