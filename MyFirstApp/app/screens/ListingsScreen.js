@@ -1,48 +1,36 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { FlatList, StyleSheet } from "react-native";
 
-import Screen from "../components/Screen";
-import AppText from "../components/AppText";
+import ActivityIndicator from "../components/ActivityIndicator";
 import AppButton from "../components/AppButton";
-import listingsApi from "../api/listings";
+import AppText from "../components/AppText";
 import Card from "../components/Card";
 import colors from "../config/colors";
+import listingsApi from "../api/listings";
 import routes from "../navigation/routes";
-import ActivityIndicator from "../components/ActivityIndicator";
+import Screen from "../components/Screen";
+import useApi from "../hooks/useApi";
 
 function ListingsScreen({ navigation }) {
-  const [error, setError] = useState(false);
-  const [listings, setListings] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const getListingsApi = useApi(listingsApi.getListings);
 
   useEffect(() => {
-    loadListings();
+    getListingsApi.request();
   }, []);
-
-  const loadListings = async () => {
-    setLoading(true);
-    const response = await listingsApi.getListings();
-    setLoading(false);
-
-    if (!response.ok) return setError(true);
-
-    setError(false);
-    setListings(response.data);
-  };
 
   return (
     <Screen style={styles.screen}>
-      {error && (
+      {getListingsApi.error && (
         <>
           <AppText>We couldn't retrieve the lists</AppText>
-          <AppButton title="Retry" onPress={loadListings} />
+          <AppButton title="Retry" onPress={getListingsApi.request} />
         </>
       )}
 
-      <ActivityIndicator visible={loading} />
+      <ActivityIndicator visible={getListingsApi.loading} />
 
       <FlatList
-        data={listings}
+        data={getListingsApi.data}
         keyExtractor={(listing) => listing.id.toString()}
         renderItem={({ item }) => (
           <Card
