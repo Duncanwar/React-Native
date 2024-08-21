@@ -18,7 +18,6 @@
       "adaptiveIcon": {
         "foregroundImage": "./app/assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-     
       }
     },
     "web": {
