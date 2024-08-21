@@ -7,6 +7,7 @@ import ErrorMessage from "./ErrorMessage";
 function FormImagePicker({ name }) {
   const { errors, setFieldValue, touched, values } = useFormikContext();
   const imageUris = values[name];
+  console.log(values.images);
 
   const handleAdd = (uri) => setFieldValue(name, [...imageUris, uri]);
   const handleRemove = (uri) =>

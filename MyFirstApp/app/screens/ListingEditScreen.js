@@ -12,6 +12,8 @@ import Screen from "../components/Screen";
 import CategoryPickerItem from "../components/CategoryPickerItem";
 import FormImagePicker from "../components/forms/FormImagePicker";
 import useLocation from "../hooks/useLocation";
+import useApi from "../hooks/useApi";
+import listings from "../api/listings";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
@@ -80,6 +82,24 @@ const categories = [
 
 function ListingEditingScreen(props) {
   const location = useLocation();
+  console.log(location, "location");
+  const handleSubmit = async (values) => {
+    const data = new FormData();
+    console.log(values.images);
+    const fileName = values.images[0].split("/").pop();
+    const fileType = fileName.split(".").pop();
+    data.append("images", {
+      name: fileName,
+      type: fileType,
+      uri: values.images,
+    });
+    data.append("title", values.title);
+    data.append("description", values.description);
+    data.append("category", values.category);
+    data.append("location");
+    // const post = useApi(listings.postListing(data));
+    console.log(fileType);
+  };
   return (
     <Screen style={styles.screen}>
       <Form
@@ -90,8 +110,8 @@ function ListingEditingScreen(props) {
           description: "",
           images: [],
         }}
-        onSubmit={(values) => console.log(location)}
-        validationSchema={validationSchema}
+        onSubmit={(values) => handleSubmit(values)}
+        // validationSchema={validationSchema}
       >
         <FormImagePicker name="images" />
         <FormField maxLength={255} name="title" placeholder="Title" />
