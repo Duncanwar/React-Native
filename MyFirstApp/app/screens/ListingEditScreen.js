@@ -82,24 +82,7 @@ const categories = [
 
 function ListingEditingScreen(props) {
   const location = useLocation();
-  console.log(location, "location");
-  const handleSubmit = async (values) => {
-    const data = new FormData();
-    console.log(values.images);
-    const fileName = values.images[0].split("/").pop();
-    const fileType = fileName.split(".").pop();
-    data.append("images", {
-      name: fileName,
-      type: fileType,
-      uri: values.images,
-    });
-    data.append("title", values.title);
-    data.append("description", values.description);
-    data.append("category", values.category);
-    data.append("location");
-    // const post = useApi(listings.postListing(data));
-    console.log(fileType);
-  };
+  const handleSubmit = async (values) => {};
   return (
     <Screen style={styles.screen}>
       <Form
@@ -111,7 +94,7 @@ function ListingEditingScreen(props) {
           images: [],
         }}
         onSubmit={(values) => handleSubmit(values)}
-        // validationSchema={validationSchema}
+        validationSchema={validationSchema}
       >
         <FormImagePicker name="images" />
         <FormField maxLength={255} name="title" placeholder="Title" />
