@@ -19,8 +19,7 @@
         "foregroundImage": "./app/assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.yourcompany.yourappname",
-      "versionCode": 1
+      "package":"com.myfirstapp.myfirstapp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
