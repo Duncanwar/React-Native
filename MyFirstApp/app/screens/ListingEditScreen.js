@@ -17,42 +17,42 @@ import UploadScreen from "./UploadScreen";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
-  price: Yup.string().required().min(1).max(10000).label("Price"),
-  description: Yup.string().label("description"),
+  price: Yup.number().required().min(1).max(10000).label("Price"),
+  description: Yup.string().label("Description"),
   category: Yup.object().required().nullable().label("Category"),
-  images: Yup.array().required().min(1, "Please select at least one image"),
+  images: Yup.array().min(1, "Please select at least one image."),
 });
 
 const categories = [
   {
+    backgroundColor: "#fc5c65",
+    icon: "floor-lamp",
     label: "Furniture",
     value: 1,
-    icon: "floor-lamp",
-    backgroundColor: "#fc5c65",
   },
   {
-    label: "Clothing",
-    value: 2,
-    icon: "shoe-heel",
-    backgroundColor: "#2bcbba",
-  },
-  {
-    label: "Camera",
-    value: 3,
-    icon: "camera",
-    backgroundColor: "#fed330",
-  },
-  {
-    label: "Cars",
-    value: 4,
-    icon: "car",
     backgroundColor: "#fd9644",
+    icon: "car",
+    label: "Cars",
+    value: 2,
   },
   {
-    label: "Games",
-    value: 5,
-    icon: "cards",
+    backgroundColor: "#fed330",
+    icon: "camera",
+    label: "Cameras",
+    value: 3,
+  },
+  {
     backgroundColor: "#26de81",
+    icon: "cards",
+    label: "Games",
+    value: 4,
+  },
+  {
+    backgroundColor: "#2bcbba",
+    icon: "shoe-heel",
+    label: "Clothing",
+    value: 5,
   },
   {
     backgroundColor: "#45aaf2",
@@ -67,20 +67,20 @@ const categories = [
     value: 7,
   },
   {
-    backgroundColor: "#45a632",
-    icon: "book",
+    backgroundColor: "#a55eea",
+    icon: "book-open-variant",
     label: "Books",
     value: 8,
   },
   {
-    backgroundColor: "#45a211",
-    icon: "note",
+    backgroundColor: "#778ca3",
+    icon: "application",
     label: "Other",
     value: 9,
   },
 ];
 
-function ListingEditingScreen(props) {
+function ListingEditScreen() {
   const location = useLocation();
   const [uploadVisible, setUploadVisible] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -92,15 +92,17 @@ function ListingEditingScreen(props) {
       { ...listing, location },
       (progress) => setProgress(progress)
     );
-
+    console.log(result);
     if (!result.ok) {
       setUploadVisible(false);
-      return alert("Could not save the listing.");
+      return alert("Could not save the listing");
     }
+
     resetForm();
   };
+
   return (
-    <Screen style={styles.screen}>
+    <Screen style={styles.container}>
       <UploadScreen
         onDone={() => setUploadVisible(false)}
         progress={progress}
@@ -110,8 +112,8 @@ function ListingEditingScreen(props) {
         initialValues={{
           title: "",
           price: "",
-          category: null,
           description: "",
+          category: null,
           images: [],
         }}
         onSubmit={handleSubmit}
@@ -137,7 +139,7 @@ function ListingEditingScreen(props) {
         <FormField
           maxLength={255}
           multiline
-          name="desccription"
+          name="description"
           numberOfLines={3}
           placeholder="Description"
         />
@@ -146,9 +148,10 @@ function ListingEditingScreen(props) {
     </Screen>
   );
 }
+
 const styles = StyleSheet.create({
-  screen: {
-    marginTop: 10,
+  container: {
+    padding: 10,
   },
 });
-export default ListingEditingScreen;
+export default ListingEditScreen;

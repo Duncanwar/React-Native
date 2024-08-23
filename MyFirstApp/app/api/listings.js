@@ -18,11 +18,10 @@ export const addListing = (listing, onUploadProgress) => {
       uri: image,
     })
   );
-
   if (listing.location)
     data.append("location", JSON.stringify(listing.location));
-  console.log(data, "data");
 
+  console.log(data, "image");
   return client.post(endpoint, data, {
     onUploadProgress: (progress) =>
       onUploadProgress(progress.loaded / progress.total),
