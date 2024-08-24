@@ -18,7 +18,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./app/assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package":"com.myfirstapp.myfirstapp"
     },
     "web": {
       "favicon": "./assets/favicon.png"

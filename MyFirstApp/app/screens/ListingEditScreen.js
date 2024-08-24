@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet } from "react-native";
 import * as Yup from "yup";
 
@@ -8,49 +8,51 @@ import {
   AppFormPicker as Picker,
   SubmitButton,
 } from "../components/forms";
-import Screen from "../components/Screen";
 import CategoryPickerItem from "../components/CategoryPickerItem";
 import FormImagePicker from "../components/forms/FormImagePicker";
+import listingsApi from "../api/listings";
+import Screen from "../components/Screen";
 import useLocation from "../hooks/useLocation";
+import UploadScreen from "./UploadScreen";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
-  price: Yup.string().required().min(1).max(10000).label("Price"),
-  description: Yup.string().label("description"),
+  price: Yup.number().required().min(1).max(10000).label("Price"),
+  description: Yup.string().label("Description"),
   category: Yup.object().required().nullable().label("Category"),
-  images: Yup.array().required().min(1, "Please select at least one image"),
+  images: Yup.array().min(1, "Please select at least one image."),
 });
 
 const categories = [
   {
+    backgroundColor: "#fc5c65",
+    icon: "floor-lamp",
     label: "Furniture",
     value: 1,
-    icon: "floor-lamp",
-    backgroundColor: "#fc5c65",
   },
   {
-    label: "Clothing",
-    value: 2,
-    icon: "shoe-heel",
-    backgroundColor: "#2bcbba",
-  },
-  {
-    label: "Camera",
-    value: 3,
-    icon: "camera",
-    backgroundColor: "#fed330",
-  },
-  {
-    label: "Cars",
-    value: 4,
-    icon: "car",
     backgroundColor: "#fd9644",
+    icon: "car",
+    label: "Cars",
+    value: 2,
   },
   {
-    label: "Games",
-    value: 5,
-    icon: "cards",
+    backgroundColor: "#fed330",
+    icon: "camera",
+    label: "Cameras",
+    value: 3,
+  },
+  {
     backgroundColor: "#26de81",
+    icon: "cards",
+    label: "Games",
+    value: 4,
+  },
+  {
+    backgroundColor: "#2bcbba",
+    icon: "shoe-heel",
+    label: "Clothing",
+    value: 5,
   },
   {
     backgroundColor: "#45aaf2",
@@ -65,32 +67,56 @@ const categories = [
     value: 7,
   },
   {
-    backgroundColor: "#45a632",
-    icon: "book",
+    backgroundColor: "#a55eea",
+    icon: "book-open-variant",
     label: "Books",
     value: 8,
   },
   {
-    backgroundColor: "#45a211",
-    icon: "note",
+    backgroundColor: "#778ca3",
+    icon: "application",
     label: "Other",
     value: 9,
   },
 ];
 
-function ListingEditingScreen(props) {
+function ListingEditScreen() {
   const location = useLocation();
+  const [uploadVisible, setUploadVisible] = useState(false);
+  const [progress, setProgress] = useState(0);
+
+  const handleSubmit = async (listing, { resetForm }) => {
+    setProgress(0);
+    setUploadVisible(true);
+    const result = await listingsApi.addListing(
+      { ...listing, location },
+      (progress) => setProgress(progress)
+    );
+    console.log(result);
+    if (!result.ok) {
+      setUploadVisible(false);
+      return alert("Could not save the listing");
+    }
+
+    resetForm();
+  };
+
   return (
-    <Screen style={styles.screen}>
+    <Screen style={styles.container}>
+      <UploadScreen
+        onDone={() => setUploadVisible(false)}
+        progress={progress}
+        visible={uploadVisible}
+      />
       <Form
         initialValues={{
           title: "",
           price: "",
-          category: null,
           description: "",
+          category: null,
           images: [],
         }}
-        onSubmit={(values) => console.log(location)}
+        onSubmit={handleSubmit}
         validationSchema={validationSchema}
       >
         <FormImagePicker name="images" />
@@ -113,7 +139,7 @@ function ListingEditingScreen(props) {
         <FormField
           maxLength={255}
           multiline
-          name="desccription"
+          name="description"
           numberOfLines={3}
           placeholder="Description"
         />
@@ -122,9 +148,10 @@ function ListingEditingScreen(props) {
     </Screen>
   );
 }
+
 const styles = StyleSheet.create({
-  screen: {
-    marginTop: 10,
+  container: {
+    padding: 10,
   },
 });
-export default ListingEditingScreen;
+export default ListingEditScreen;
