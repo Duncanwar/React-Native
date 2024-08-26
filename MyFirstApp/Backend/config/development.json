@@ -1,10 +1,4 @@
 {
-<<<<<<< HEAD
-  "assetsBaseUrl": "http://192.168.0.14:9000/assets/",
+  "assetsBaseUrl": "http://192.168.1.66:9000/assets/",
   "port": 9000
 }
-=======
-  "assetsBaseUrl": "http://192.168.88.136:9000/assets/",
-  "port": 9000
-}
->>>>>>> refs/remotes/origin/master

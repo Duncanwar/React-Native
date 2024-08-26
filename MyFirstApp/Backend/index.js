@@ -17,10 +17,6 @@ app.use(express.static("public"));
 app.use(express.json());
 app.use(helmet());
 app.use(compression());
-<<<<<<< HEAD
-
-=======
->>>>>>> refs/remotes/origin/master
 app.use("/api/categories", categories);
 app.use("/api/listing", listing);
 app.use("/api/listings", listings);
@@ -32,10 +28,6 @@ app.use("/api/expoPushTokens", expoPushTokens);
 app.use("/api/messages", messages);
 
 const port = process.env.PORT || config.get("port");
-<<<<<<< HEAD
-app.listen(port, function() {
-=======
 app.listen(port, function () {
->>>>>>> refs/remotes/origin/master
   console.log(`Server started on port ${port}...`);
 });

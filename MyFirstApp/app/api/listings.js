@@ -21,10 +21,10 @@ export const addListing = (listing, onUploadProgress) => {
   if (listing.location)
     data.append("location", JSON.stringify(listing.location));
 
-  console.log(data, "image");
   return client.post(endpoint, data, {
-    onUploadProgress: (progress) =>
-      onUploadProgress(progress.loaded / progress.total),
+    onUploadProgress: ({ progress }) => console.log(progress, "progress"),
+    headers: { "Content-Type": "multipart/form-data" },
+    // console.log(progress.loaded / progress.total),
   });
 };
 

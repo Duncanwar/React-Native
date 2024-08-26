@@ -9,6 +9,7 @@ function UploadScreen({ onDone, progress = 0, visible = false }) {
   return (
     <Modal visible={visible}>
       <View style={styles.container}>
+        {console.log(progress, visible)}
         {progress < 1 ? (
           <Progress.Bar
             color={colors.primary}

@@ -59,10 +59,6 @@ router.post(
   ],
 
   async (req, res) => {
-<<<<<<< HEAD
-=======
-    console.log("Upload");
->>>>>>> refs/remotes/origin/master
     const listing = {
       title: req.body.title,
       price: parseFloat(req.body.price),
@@ -70,10 +66,6 @@ router.post(
       description: req.body.description,
     };
     listing.images = req.images.map((fileName) => ({ fileName: fileName }));
-<<<<<<< HEAD
-=======
-    console.log(listing);
->>>>>>> refs/remotes/origin/master
     if (req.body.location) listing.location = JSON.parse(req.body.location);
     if (req.user) listing.userId = req.user.userId;
 
