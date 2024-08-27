@@ -1,5 +1,5 @@
 import React from "react";
-import { Modal, StyleSheet, View } from "react-native";
+import { View, StyleSheet, Modal } from "react-native";
 import * as Progress from "react-native-progress";
 import LottieView from "lottie-react-native";
 
@@ -9,7 +9,6 @@ function UploadScreen({ onDone, progress = 0, visible = false }) {
   return (
     <Modal visible={visible}>
       <View style={styles.container}>
-        {console.log(progress, visible)}
         {progress < 1 ? (
           <Progress.Bar
             color={colors.primary}
@@ -32,6 +31,7 @@ function UploadScreen({ onDone, progress = 0, visible = false }) {
 
 const styles = StyleSheet.create({
   animation: {
+    height: 150,
     width: 150,
   },
   container: {
