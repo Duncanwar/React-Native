@@ -1,42 +1,41 @@
-import { Image, StyleSheet, Platform, TextInput } from 'react-native';
-
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+import { useState } from "react";
+import { StyleSheet, TextInput, SafeAreaView, Text, View } from "react-native";
 
 export default function HomeScreen() {
+  const [input, setInput] = useState("");
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
+    <SafeAreaView style={styles.screen}>
+      <View style={styles.container}>
+        <Text style={styles.text}> Task Manager App</Text>
+
+        <TextInput
+          style={styles.input}
+          placeholder="Enter a task"
+          onChangeText={setInput}
         />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <TextInput placeholder='Enter a task' onChangeText={ } />
-      </ThemedView>
-    </ParallaxScrollView>
+        <Text>{input}</Text>
+      </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
+  container: {
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+    flex: 1,
+    height: 50,
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
+  input: {
+    flex: 1,
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+  screen: {
+    flex: 1,
+  },
+  text: {
+    fontSize: 20,
+    transform: "uppercase",
+    marginBottom: 10,
   },
 });
