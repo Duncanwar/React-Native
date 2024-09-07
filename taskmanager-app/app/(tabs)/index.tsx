@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
   },
   input: {
     flex: 1,
+    backgroundColor: "black"
   },
   screen: {
     flex: 1,
