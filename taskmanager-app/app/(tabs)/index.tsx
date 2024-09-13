@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     flex: 1,
     height: 50,
-  },
+  },˜
   input: {
     flex: 1,
     backgroundColor: "black"
